@@ -10,6 +10,17 @@ from Compare_AI_REC import myCompare_REC_App
 from Compare_AI_CHT import myCompare_CHT_App
 from Compare_AI_CV import myCompare_CV_App
 
+# And the root-level secrets are also accessible as environment variables:
+
+import os
+
+st.write(
+    "Has environment variables been set:",
+    os.environ["OPENAI_API_KEY"] == st.secrets["OPENAI_API_KEY"],
+    os.environ["GEMINI_API_KEY"] == st.secrets["GEMINI_API_KEY"],
+    os.environ["GCS_BUCKET_NAME"] == st.secrets["GCS_BUCKET_NAME"],
+    os.environ["GOOGLE_CLOUD_PROJECT"] == st.secrets["GOOGLE_CLOUD_PROJECT"],
+)
 
 # Streamlit interface
 st.title("LLM and AI Model Comparison App")
