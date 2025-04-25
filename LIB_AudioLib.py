@@ -14,7 +14,13 @@ from langchain.chains.question_answering import load_qa_chain
 from dotenv import load_dotenv
 
 # Specify the path to your .env file
-dotenv_path = '/home/gabriel/myProject/myvenv/.env'
+# Load environment variables from .env file
+dotenv_path = '/home/gabriel/myProject/myvenv/.env' # <<< PRÜFE DIESEN PFAD GENAU!
+if os.path.exists(dotenv_path):
+    print(f"Lade Umgebungsvariablen aus {dotenv_path}")
+    load_dotenv(dotenv_path=dotenv_path, override=True)
+else:
+    print(f"Warnung: .env-Datei nicht gefunden unter {dotenv_path}.")
 
 # --------------------------------------------------------------------------------------------
 def get_audio_output_devices():
@@ -323,9 +329,6 @@ def ask_question(documents, question):
         str: The response from the LLM.
     """
    
-    # Load environment variables from .env file
-    load_dotenv(dotenv_path)
-
     # Access the API key
     openai_api_key = os.getenv('OPENAI_API_KEY')
     llm = OpenAI(temperature=0, openai_api_key=openai_api_key)
