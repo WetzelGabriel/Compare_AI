@@ -20,6 +20,29 @@ streamlit run Compare_AI_Main.py
 
 - **LLM Comparison:**  
   Compare outputs from different Large Language Models (LLMs).
+  This module allows users to **compare the performance and outputs** of different **Large Language Models (LLMs)** side-by-side using a simple Streamlit UI.
+  You can run the LLM comparison app directly using:
+  ```bash
+  streamlit run Compare_AI_LLM.py
+  ```
+  Or access it through the **main app** `Compare_AI_Main.py` via the sidebar menu.
+
+  The `Compare_AI_LLM.py` file enables:
+  - **Direct question input** by the user.
+  - **Parallel comparison** between three different LLM models.
+  - **Response timing** (latency) measurement for each model.
+  - **Garbage collection** after model invocation to optimize memory usage.
+
+    #### 🛠 Models Compared
+    
+    | Model Name                      | Description                               |
+    |----------------------------------|-------------------------------------------|
+    | Dolphin3 GGUF (small Llama3)     | Small, efficient Llama 3 variant (GGUF format). |
+    | DeepSeek-R1 1.5b                 | 1.5 billion parameter model for open Q&A. |
+    | Gemini Qwen2.5 0.5B (Distilled)  | Tiny distilled version of Qwen2.5 optimized for edge use. |
+    
+    Each model is accessed using its corresponding **Ollama identifier**.
+
 
 - **Speech-To-Text Comparison:**  
   Benchmark various STT models for transcription quality.
